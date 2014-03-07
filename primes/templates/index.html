@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta lang="ru-RU">
+    <meta charset="utf-8">
+    <title>Простые числа</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Добро пожаловать!</h1>
+        <p>Введите порядковый номер простого числа (от 1 до {{ form.max_index }}) и получите соответствующее простое.</p>
+        {% if form.errors %}
+        <p class="error">
+            Пожалуйста, исправьте ошибки во введённых данных.
+        </p>
+        {% endif %}
+        <form action="/prime/" method="post" class="prime-request">
+            {% for field in form %}
+                <div class="form-field">
+                    {% if form.errors %} {% endif %}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+            {% endfor %}
+            <input type="submit" value="Получить простое">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta lang="ru-RU">
+    <meta charset="utf-8">
+    <title>{{ prime.index }}-е простое число</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+</head>
+<body>
+    <div class="prime-description">{{ prime.index }}-е простое число: <span class="prime">{{ prime.value }}</span><br><br>
+        <a href="/">Ещё раз?</a>
+    </div>
+</body>
+</html>
